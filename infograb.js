@@ -1,6 +1,8 @@
 /** @param {NS} ns */
 export async function main(ns) {
-  var target = ns.args[0];
+  if (ns.args.length > 0)
+    {var target = ns.args[0]}
+      else {ns.tprintf("ERROR: Target server not specified"); return;}
   ns.tprintf("   HasRootAccess: "+ns.hasRootAccess(target));
   ns.tprintf("   PortsRequired: "+ns.getServerNumPortsRequired(target));
   ns.tprintf("          MaxRAM: "+ns.getServerMaxRam(target));
